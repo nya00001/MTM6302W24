@@ -1,9 +1,19 @@
  /*** If...else conditional statements ***/
 
 // 1. Declare two variables: 'userName' with your username ; and 'isLoggedIn'with true as value.
+const userName = 'nya00001'
+const isLoggedIn = false
 
 
 // 2. Display the message 'Welcome, <username>' only if the user is logged in; output the message using the HTML element with id 'loginMessage'
+const $loginMessage = document.getElementById('loginMessage')
+
+if (isLoggedIn === true) {
+    console.log(`Welcome, ${userName}`)
+    $loginMessage.textContent = 'Welcome, ' + userName
+} else {
+    $loginMessage.textContent = 'Please log in to continue'
+}
 
 // 3. Display a different message when the user is not logged in.
 
@@ -11,13 +21,25 @@
 /*** Switch conditional statements ***/
 // 1. Declare the following variables
     //'$loginStatus' with the reference to the DOM element that contains the ID 'loginStatus'
+    const $loginStatus = document.getElementById('loginStatus')
     //'loginCase' with 0 as value
+    const loginCase = 0
     //'loginIcon' without any value assigned to it.
-
+    let loginIcon
 
 // 2. Create a switch statement to compare values from 0 to 3
-
+    
     //Assign the string value representing the name of an image to the 'loginIcon' variable for each case.
+    switch (loginCase) {
+        case 0:
+            loginIcon = 'pass.png'
+            break;
+        case 3:
+            loginIcon = 'info.png'
+            break;
+        default:
+            loginIcon = 'unknown.png'
+    }
 
     // loginIcon = 'pass.png' 
     // loginIcon = 'info.png' 
@@ -26,7 +48,7 @@
     // loginIcon = 'unknown.png'
 
 // 2. Reasign the 'source' attribute, of the HTML element with the id 'loginStatus', use the concatenation of the string 'img/' and the variable 'loginIcon'
-
+$loginStatus.src = 'img/' + loginIcon
 
 
 
@@ -34,10 +56,15 @@
 
 //Replicate toggle functionality using conditional statements
 // 1- Target the element with the id 'hero'
+const $hero = document.getElementById('hero')
 
 function toggleDarkMode(){
     //2- Conditional statement here. Use the classList methods
-
+    if ($hero.classList.contains('text-bg-dark')) {
+        $hero.classList.remove('text-bg-dark') 
+    } else {
+        $hero.classList.add('text-bg-dark') 
+    }
 }
 
 //Display posts
@@ -63,7 +90,12 @@ function displayBlog(category){
 
 // 1. String functions
 
+console.log(userName.toUpperCase())
+
 // 2. Write a function that prints in the console the parameters 'firstName' and 'lastName'
+function printFullName(firstName, lastName){
+    console.log (firstName + ' ' + lastName)
+}
 
 // 3.Write a function that prints a new blog in the document
 //Variable declaration
